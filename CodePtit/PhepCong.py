@@ -1,0 +1,6 @@
+strA = input() 
+a = int(strA[0]) 
+b = int(strA[4])
+c = int(strA[8])
+if (a + b == c): print("YES")
+else : print("NO")

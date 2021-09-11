@@ -33,4 +33,11 @@ if __name__== "__main__":
             if(condition(x)):
                 print(x, end=" ")
             val = x
+        val = 22222222
+        for x in range(22222222 , 88888888 , 2):
+            if(val > a):
+                break
+            if(condition(x)):
+                print(x, end=" ")
+            val = x
         print(end="\n")

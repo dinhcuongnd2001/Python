@@ -1,7 +1,3 @@
-
-from abc import abstractmethod
-
-
 while(True):
     a = input().split()
     if(a[0] == '0' and a[1] == '0' and a[2] == '0' and a[3] == '0'):

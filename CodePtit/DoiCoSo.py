@@ -5,7 +5,7 @@ for i in range(65,91):
     a.append(chr(i))
 
 def solve(N , b):
-    ans = "";
+    ans = ""
     while(N > 0):
         tg = N % b
         ans = str(a[tg]) + ans

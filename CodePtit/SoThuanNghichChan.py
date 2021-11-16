@@ -1,20 +1,48 @@
-#sinh xau nhi phan doi xung
-a = [0, 2, 4, 6, 8]
-def condition(a):  
-    x1 = str(a)
-    x2 = ''
-    for i in range(len(x1) - 1 , -1 , -1):
-        x2 += x1[i]
-        if(int(x1[i]) % 2 == 1): return False
-    if(x2 == x1 and len(x1) % 2 == 0):
+import math
+import queue
+from collections import defaultdict
+
+def condition(x):
+    a = str(x)
+    b = a[::-1]
+    if a == b and len(a) % 2 == 0:
         return True
-    return False
+    else : return False
 
-# def Try(i):
+if __name__ == "__main__" :
+    T = int(input())
+    for i in range(T):
+        n = int(input())
+        q = queue.Queue()
+        a = []
+        v = 0
+        cnt = defaultdict(int)
+        for i in range(0, 10, 2):
+            value = v * 10 + i
+            if cnt[value] == 0 and value < n:
+                q.put(value)
+                cnt[value] = 1
+            for j in range(0, 10, 2):
+                if cnt[value * 10 + j] == 0 and value * 10 + j < n:
+                    q.put(value * 10 + j)
+                    cnt[value * 10 + j] = 1
 
+        while not q.empty():
+            v = q.get()
+            if v >= n:
+                break
+            if condition(v) == True:
+                a.append(v)
+            for i in range(0, 10, 2):
+                value = v * 10 + i
+                if cnt[value] == 0 and value < n:
+                    q.put(value)
+                    cnt[value] = 1
+                for j in range(0, 10, 2):
+                    if cnt[value * 10 + j] == 0 and value * 10 + j < n:
+                        q.put(value * 10 + j)
+                        cnt[value * 10 + j] = 1
 
-if __name__== "__main__":
-    test = int(input())
-    for i in range(test):
-        a = int(input())
-        
+        for i in range(len(a)):
+            print(a[i], end = " ")
+        print()
